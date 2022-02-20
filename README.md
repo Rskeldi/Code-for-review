@@ -20,6 +20,11 @@ sudo systemctl stop redis.service
 Первым делом надо заполнить .env по образу .env.example
 Для удобства можно просто скопировать содержимое .env.example, все будет работать
 
+`cp .env.example .env`
+
+<br>
+
+### Docker
 Если нету докера, то нужно установить
 Установка на 
 [Ubuntu](https://www.digitalocean.com/community/tutorials/docker-ubuntu-18-04-1-ru)
