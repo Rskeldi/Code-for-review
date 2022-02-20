@@ -9,6 +9,10 @@ sudo systemctl stop postgresql.service
 sudo systemctl stop redis.service
 ````
 Потом их надо будет включить. Команды в конце
+<br>
+
+#### Чтобы удобнее было читать код, я сделал pull request
+[Pull request](https://github.com/Rskeldi/Test-Job/pull/1/files)
 
 
 ### START
@@ -35,7 +39,7 @@ sudo systemctl stop redis.service
 <br>
 
 #### Admin
-[Ссылка на админку](http://0.0.0.0:8000)
+[Ссылка на админку](http://0.0.0.0:8000/admin/)
 ##### username: admin
 ##### password: admin
 <br>
