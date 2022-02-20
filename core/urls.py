@@ -5,6 +5,6 @@ from content.views import PageListApiView, PageDetailApiView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PageListApiView.as_view()),
-    path('<int:pk>/', PageDetailApiView.as_view(), name='page_detail')
+    path('api/v1/', PageListApiView.as_view()),
+    path('api/v1/<int:pk>/', PageDetailApiView.as_view(), name='page_detail')
 ]
