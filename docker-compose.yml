@@ -1,0 +1,53 @@
+version: "3.1"
+
+services:
+  runserver:
+    build: .
+    volumes:
+      - .:/webapp
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./.env
+    command: >
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    links:
+      - db
+    depends_on:
+      - db
+      - celery
+      - redis
+      - autotests
+  autotests:
+    build: .
+    env_file:
+      - ./.env
+    command: >
+      sh -c "python manage.py migrate && python manage.py test"
+    links:
+      - db
+    depends_on:
+      - db
+      - celery
+      - redis
+  celery:
+    build: .
+    command: celery -A core worker -l info -B
+    env_file:
+      - ./.env
+    links:
+      - redis
+      - db
+    depends_on:
+      - redis
+      - db
+  db:
+    image: postgres:latest
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
