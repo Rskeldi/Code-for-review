@@ -1,4 +1,4 @@
-# Тестовое задание JustWork
+# Code for review
 ##### Python 3.8.10
 
 
